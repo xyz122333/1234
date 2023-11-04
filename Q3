@@ -1,0 +1,9 @@
+CREATE TABLE StudentDetails (
+Std_Detail_Id INT NOT NULL,
+Std_Master_ID INT NOT NULL,
+Edu_Year INT,
+Std_Class VARCHAR(2),
+Std_Branch VARCHAR(20),
+Std_Result VARCHAR(50),
+PRIMARY KEY (Std_Detail_Id),
+FOREIGN KEY (Std_Master_ID) REFERENCES StudentMaster (Std_ID));
