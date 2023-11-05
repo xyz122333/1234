@@ -1,0 +1,20 @@
+CREATE DATABASE test1;
+USE test1;
+CREATE TABLE Employee(
+ Emp_id INT PRIMARY KEY,
+ name VARCHAR(25),
+ Job VARCHAR(25),
+ Salary INT
+);
+INSERT INTO Employee (Emp_id, name, Job, Salary) VALUES
+(1, 'abc', 'Manager', 6000.00),
+(2, 'pqr', 'tester', 2500),
+(3, 'lmn', 'clerk', 5000),
+(4, 'xyz', 'designer',3000);
+SELECT * FROM Employee;
+SELECT Job, AVG(Salary) AS AvgSalary 
+FROM Employee
+WHERE Salary > 3000
+GROUP BY Job
+HAVING AvgSalary > 5000
+ORDER BY AvgSalary DESC;
