@@ -1,0 +1,18 @@
+use test;
+show tables;
+CREATE TABLE Employee(
+ Empno INT PRIMARY KEY,
+ Ename VARCHAR(20),
+ Job VARCHAR(20),
+ Salary DECIMAL(10,2));
+INSERT INTO Employee (Empno, Ename, Job, Salary) VALUES
+(1, 'John Doe', 'Manager', 60000.00),
+(2, 'Jane Smith', 'Developer', 55000.00),
+(3, 'Bob Johnson', 'Analyst', 50000.00),
+(4, 'Alice Brown', 'Designer', 52000.00),
+(5, 'Charlie Wilson', 'Tester', 48000.00);
+SELECT * FROM Employee;
+SELECT AVG(Salary) AS AvgSalary FROM Employee;
+SELECT COUNT(*) AS TotalEmployee FROM Employee;
+SELECT MIN(Salary) AS MinSalary FROM Employee;
+SELECT MAX(Salary) AS MaxSalary FROM Employee;
