@@ -1,0 +1,17 @@
+CREATE TABLE students (
+  id INTEGER PRIMARY KEY,
+  name varchar(20) NOT NULL,
+  gender varchar(20) NOT NULL
+);
+INSERT INTO students VALUES (1, 'Kushagar', 'M');
+INSERT INTO students VALUES (2, 'hritick', 'M');
+INSERT INTO students VALUES (3, 'sumit', 'M');
+INSERT INTO students VALUES (4, 'pratik', 'M');
+INSERT INTO students VALUES (5, 'srishti', 'F');
+INSERT INTO students VALUES (6, 'Aaru', 'F');
+SELECT * FROM students;
+DELETE FROM students WHERE name='sumit';
+SELECT * FROM students;
+UPDATE students SET name='Varun' WHERE name='hritick';
+SELECT * FROM students WHERE gender = 'M';
+
