@@ -1,0 +1,26 @@
+create database test;
+use test;
+create table areas(
+radius DOUBLE,
+area DOUBLE
+);
+DELIMITER //
+CREATE PROCEDURE CalculateCircleArea()
+BEGIN
+    DECLARE current_radius INT;
+    DECLARE area DECIMAL(10, 2);
+    CREATE TABLE IF NOT EXISTS areas (
+        radius INT,
+        area DECIMAL(10, 2)
+    );
+    SET current_radius = 5;
+    WHILE current_radius <= 9 DO
+        SET area = 3.14159265358979323846 * POW(current_radius, 2);
+        INSERT INTO areas (radius, area) VALUES (current_radius, area);
+        SET current_radius = current_radius + 1;
+    END WHILE;
+END //
+CALL CalculateCircleArea();
+//
+SELECT * FROM areas;
+//
