@@ -1,0 +1,19 @@
+CREATE DATABASE test2;
+USE test2;
+CREATE TABLE Employee(
+ Emp_id INT PRIMARY KEY,
+ name VARCHAR(20),
+ Job VARCHAR(20),
+ Salary varchar(20)
+);
+INSERT INTO Employee (Emp_id, name, Job, Salary) VALUES(1, 'xyz', 'tester', 8000),(2, 'pqr', 'manager', 5000),(3, 'lmn', 'clerk', 5000),(4, 'def', 'scrum master', 3000),(5, 'abc', 'designer', 4000);
+SELECT * FROM Employee;
+CREATE INDEX idx_name ON Employee(name);
+SELECT * FROM Employee WHERE name='abc';
+SELECT * FROM Employee;
+DELETE FROM Employee WHERE name='pqr';
+UPDATE Employee SET Salary=55000 WHERE name='def';
+SELECT * FROM Employee;
+SELECT * FROM Employee ORDER BY name;
+SHOW INDEX FROM Employee;
+DROP INDEX idx_name ON Employee;
