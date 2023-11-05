@@ -1,0 +1,44 @@
+CREATE DATABASE test ;
+USE test;
+CREATE TABLE Students (
+    Roll INT NOT NULL AUTO_INCREMENT,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    Address VARCHAR(500),
+    City VARCHAR(50),
+    PRIMARY KEY(Roll));
+INSERT INTO Students (FirstName, LastName, Address, City) VALUES ("Suman", "Patil", "Chinchwad", "Pune");
+INSERT INTO Students (FirstName, LastName, Address, City) VALUES ("Kshitija", "More", "Pimpri", "Pune");
+INSERT INTO Students (FirstName, LastName, Address, City) VALUES ("Mayuri", "Deshmukh", "Mulashi", "Pune");
+INSERT INTO Students (FirstName, LastName, Address, City) VALUES ("Ankita", "Mavle", "Chakan", "pune");
+INSERT INTO Students (FirstName, LastName, Address, City) VALUES ("Shreeya", "Narute", "Pimpri", "Pune");
+SELECT * FROM Students;
+CREATE INDEX student_index ON Students (Roll, FirstName, LastName, Address, City);
+CREATE VIEW view_student AS SELECT FirstName, LastName, City FROM Students;
+SELECT * FROM view_student;
+CALL sys.create_synonym_db('temp', 'Student');
+SHOW DATABASES;
+SHOW TABLES; 
+SELECT * FROM Students;
+SELECT * FROM Students WHERE City = 'Pune';
+UPDATE Students SET City = "Nagpur" WHERE Roll = 1; 
+SELECT * FROM Students; 
+DELETE FROM Students WHERE Roll = 4;
+SELECT * FROM Students;
+INSERT INTO Students (FirstName,LastName,Address,City) VALUE ("Mitali", "Kulkarni", "Moshi", "Pune");
+SELECT * FROM Students; 
+UPDATE Students SET Address = "Akurdi" WHERE Roll = 1; 
+SELECT * FROM Students;
+DELETE FROM Students WHERE Address = 'Chinchwad'; 
+SELECT * FROM Students;
+DELETE FROM Students WHERE Address != 'Akurdi';
+SELECT * FROM Students;
+SELECT ROUND(3.14159265, 2);
+SELECT CONCAT('Hello', ' ', 'World');
+SELECT DATEDIFF('2023-10-15', '2023-10-01');
+SELECT REPLACE('Hello, World', 'World', 'MySQL');
+CREATE TABLE setop (
+    UserID INT PRIMARY KEY,
+    FavoriteColors VARCHAR(255));
+INSERT INTO setop (UserID, FavoriteColors) VALUES (1, 'Red,Blue'), (2, 'Green,Yellow,Blue'), (3, 'Red');
+SELECT UserID FROM setop WHERE FIND_IN_SET('Blue', FavoriteColors) > 0;
