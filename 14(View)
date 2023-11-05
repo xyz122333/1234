@@ -1,0 +1,27 @@
+create database test;
+use test;
+show tables;
+CREATE TABLE Employee(
+ Empno INT PRIMARY KEY,
+ Ename VARCHAR(20),
+ Job VARCHAR(20),
+ Salary DECIMAL(10,2)
+);
+INSERT INTO Employee (Empno, Ename, Job, Salary) VALUES
+(1, 'John Doe', 'Manager', 60000.00),
+(2, 'Jane Smith', 'Developer', 55000.00),
+(3, 'Bob Johnson', 'Analyst', 50000.00),
+(4, 'Alice Brown', 'Designer', 52000.00),
+(5, 'Charlie Wilson', 'Tester', 48000.00);
+CREATE VIEW Employee_view AS SELECT Empno, Ename, Job FROM Employee;
+SELECT * FROM Employee_view;
+INSERT INTO Employee_view (Empno, Ename, Job) 
+VALUES(6, 'Joey Linkon', 'SDE');
+SELECT * FROM Employee_view;
+SELECT * FROM Employee;
+UPDATE Employee_view SET Job = 'Manager' WHERE Empno=1;
+SELECT * FROM Employee_view;
+UPDATE Employee_view SET Job = 'Manager' WHERE Empno=6;
+SELECT * FROM Employee_view;
+DELETE FROM Employee_view WHERE Empno=6;
+SELECT * FROM Employee_view;
