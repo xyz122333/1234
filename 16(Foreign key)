@@ -1,0 +1,27 @@
+CREATE DATABASE Company;
+USE Company;
+CREATE TABLE Employee (
+    Empno INT PRIMARY KEY,
+    Ename VARCHAR(20) NOT NULL UNIQUE,
+    Job VARCHAR(20),
+    Salary DECIMAL(10,2) NOT NULL,
+    ProjectID INT);
+CREATE TABLE Projects (
+    ProjectID INT PRIMARY KEY,
+    ProjectName VARCHAR(50) NOT NULL);
+INSERT INTO Projects (ProjectID, ProjectName) VALUES
+    (1, 'Project Alpha'),
+    (2, 'Project Beta'),
+    (3, 'Project Gamma');
+SELECT * FROM Projects;
+ALTER TABLE Employee ADD CONSTRAINT FK_Project_Employee FOREIGN KEY (ProjectID) REFERENCES Projects(ProjectID);
+INSERT INTO Employee (Empno, Ename, Job, Salary, ProjectID) VALUES
+    (1, 'John Doe', 'Manager', 60000.00, 1),  
+    (2, 'Jane Smith', 'Developer', 55000.00, 2),  
+    (3, 'Bob Johnson', 'Analyst', 50000.00, 3),  
+    (4, 'Alice Brown', 'Designer', 52000.00, 1),  
+    (5, 'Charlie Wilson', 'Tester', 48000.00, 2);  
+INSERT INTO Employee (Empno, Ename, Job, Salary, ProjectID) VALUES (1, 'John Doe', 'Tester', 55000.00, 2);
+INSERT INTO Employee (Empno, Ename, Job, Salary, ProjectID) VALUES (6, 'John Doe', 'Tester', 55000.00, 2);
+INSERT INTO Employee (Empno, Job, ProjectID) VALUES (6, 'Tester', 2);
+INSERT INTO Employee (Empno, Ename, Job, Salary, ProjectID) VALUES (7, 'Sarah Johnson', 'Analyst', 52000.00, 4);
